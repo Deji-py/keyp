@@ -22,7 +22,7 @@ function Header({ nav, profilepic, username }) {
   const { theme, setTheme, toggleTheme, setToggleTheme } =
     useContext(ThemeContext);
   const { Userlogout } = UserAuth();
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -37,9 +37,9 @@ function Header({ nav, profilepic, username }) {
     }
   }
 
-  const handleToggleLogout = ()=>{
-    setToggle(!toggle)
-  }
+  const handleToggleLogout = () => {
+    setToggle(!toggle);
+  };
 
   return (
     <>
@@ -124,7 +124,7 @@ function Header({ nav, profilepic, username }) {
           <Avatar
             src={profilepic}
             alt={username}
-            style={{ marginRight: "10px" }}
+            style={{ marginRight: "10px", cursor: " pointer" }}
             onClick={handleToggleLogout}
           />
           {nav === false ? (
@@ -132,18 +132,16 @@ function Header({ nav, profilepic, username }) {
               <IconButton
                 sx={{ width: "30px", height: "30px", position: "relative" }}
                 size="small"
-                
               >
                 <FontAwesomeIcon
                   icon={faEllipsisVertical}
                   style={toggleTheme ? navTheme.navDark : navTheme.navlight}
                 />
-                <motion.div animate={
-                  {
-                    display:toggle?"none":"block",
-                    y:toggle?"5px":"-5px",
-                  }
-                }
+                <motion.div
+                  animate={{
+                    display: toggle ? "block" : "none",
+                    y: toggle ? "3px" : "-3px",
+                  }}
                   className="profilecard flex__centered"
                   style={{
                     boxShadow: toggleTheme
@@ -152,8 +150,8 @@ function Header({ nav, profilepic, username }) {
                     ...(toggleTheme ? navTheme.navDark : navTheme.navlight),
                   }}
                 >
-                    <img src={logout} alt="logout" style={{width:"100%"}}/>
-                 
+                  <img src={logout} alt="logout" style={{ width: "100%" }} />
+
                   <button className="cta addkey logout" onClick={Userlogout}>
                     <FontAwesomeIcon
                       icon={faSignOut}
