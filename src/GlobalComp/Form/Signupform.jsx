@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./form.css";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ThemeContext, formTheme } from "../../ThemeContext";
 import googleLogo from "../../Asset/Images/GoogleLogo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth, userContext } from "../../context/AuthContext";
 import { CircularProgress } from "@mui/material";
-
 
 function SignupForm() {
   const { toggleTheme } = useContext(ThemeContext);
@@ -17,24 +16,32 @@ function SignupForm() {
   const [lastname, setLastname] = useState("");
   const [registeremail, setRegisterEmail] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
 
   const [error, setError] = useState("");
-
+  const [matcherror, setMatcherror] = useState("");
+  
+  
   const navigate = useNavigate();
 
   const { createUser, Userprofile } = UserAuth();
-  const [isloading , setIsloading] = useState(false)
+  const [isloading, setIsloading] = useState(false);
   const handleSubmit = async () => {
     setError("");
-    setIsloading(true)
+    setIsloading(true);
     try {
-      await createUser(registeremail, registerpassword);
-      navigate("/dashboard");
-      await Userprofile(firstname, lastname)
-      setIsloading(false)
+      if (registerpassword === confirmpassword) {
+        await createUser(registeremail, registerpassword);
+        navigate("/dashboard");
+        await Userprofile(firstname, lastname);
+        setIsloading(false);
+      } else {
+        setMatcherror("Password does not match");
+        setIsloading(false);
+      }
     } catch (e) {
-      console.log(e.message);
-      setIsloading(false)
+      setError(e.message);
+      setIsloading(false);
     }
   };
 
@@ -75,9 +82,21 @@ function SignupForm() {
 
           <h4>Signup with Google</h4>
         </button>
-
+        <p
+            style={{
+              color: "red",
+              right: "0",
+              fontSize:"12px", 
+              padding:"10px 10px 0px 10px"
+            }}
+          >
+             {error != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+          {error}
+          </p>
         <label htmlFor="username">
-          <h5 className="formText">Firstname <span style={{color:"red"}}>*</span></h5>
+          <h5 className="formText">
+            Firstname <span style={{ color: "red" }}>*</span>
+          </h5>
           <input
             type="text"
             name="username"
@@ -88,7 +107,9 @@ function SignupForm() {
           />
         </label>
         <label htmlFor="username">
-          <h5 className="formText">Lastname   <span style={{color:"red"}}>*</span></h5>
+          <h5 className="formText">
+            Lastname <span style={{ color: "red" }}>*</span>
+          </h5>
           <input
             type="text"
             name="username"
@@ -99,11 +120,13 @@ function SignupForm() {
           />
         </label>
         <label htmlFor="username">
-          <h5 className="formText">Email  <span style={{color:"red"}}>*</span></h5>
+          <h5 className="formText">
+            Email <span style={{ color: "red" }}>*</span>
+          </h5>
           <input
-            type="text"
-            name="username"
-            id="user"
+            type="email"
+            name="email"
+            id="usermail"
             required
             onChange={(event) => setRegisterEmail(event.target.value)}
             placeholder="Example@gmail.com"
@@ -111,7 +134,9 @@ function SignupForm() {
           />
         </label>
         <label htmlFor="password" className="passwordLabel">
-          <h5 className="formText">Password  <span style={{color:"red"}}>*</span></h5>
+          <h5 className="formText">
+            Password <span style={{ color: "red" }}>*</span>
+          </h5>
           <input
             style={{ color: toggleTheme ? "white" : "black" }}
             type={toggleConEye ? "text" : "password"}
@@ -140,13 +165,32 @@ function SignupForm() {
             )}
           </button>
         </label>
-        <label htmlFor="password" className="passwordLabel">
-          <h5 className="formText">Confirm Password   <span style={{color:"red"}}>*</span></h5>
+        <label
+          htmlFor="password"
+          className="passwordLabel"
+          style={{ position: "relative" }}
+        >
+          <h5 className="formText">
+            Confirm Password <span style={{ color: "red" }}>*</span>
+          </h5>
+          <p
+            style={{
+              position: "absolute",
+              top: "8px",
+              fontSize: "12px",
+              color: "red",
+              right: "0",
+            }}
+          >
+             {matcherror != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+          {matcherror}
+          </p>
           <input
             style={{ color: toggleTheme ? "white" : "black" }}
             type={toggleEye ? "text" : "password"}
             name="password"
             id="confirmpass"
+            onChange={(e) => setConfirmpassword(e.target.value)}
           />
 
           <button className="eyeIcon" onClick={() => setToggleEye(!toggleEye)}>
@@ -165,8 +209,23 @@ function SignupForm() {
             )}
           </button>
         </label>
-        <button type="submit" className="logincta" onClick={handleSubmit} style={{position:"relative"}} >
-          CREATE ACCOUNT  <CircularProgress sx={{color:"white", position:'absolute', right:"20px", top:'8px', display:isloading?"block":"none"}} size={30} />
+        <button
+          type="submit"
+          className="logincta"
+          onClick={handleSubmit}
+          style={{ position: "relative" }}
+        >
+          CREATE ACCOUNT{" "}
+          <CircularProgress
+            sx={{
+              color: "white",
+              position: "absolute",
+              right: "20px",
+              top: "8px",
+              display: isloading ? "block" : "none",
+            }}
+            size={30}
+          />
         </button>
         <h5 style={{ marginTop: "20px" }}>
           Have an Account?

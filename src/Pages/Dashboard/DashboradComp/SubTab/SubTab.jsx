@@ -13,7 +13,7 @@ import "./SubTab.css";
 
 function SubTab() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { Userlogout, user} = UserAuth();
+  const { user} = UserAuth();
  
 
   return (
@@ -26,7 +26,7 @@ function SubTab() {
         </button>
       </div>
       <div className="name">
-        <h2 style={{ color: "gray", marginRight: "20px" }}>HI, {user && user.displayName}</h2>
+        <h2 style={{ color: "gray", marginRight: "20px"}}>HI, {user && user.displayName}</h2>
       </div>
       <div className="Right flex__layout">
         <button

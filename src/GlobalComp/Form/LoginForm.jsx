@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import "./form.css";
-import { faEye, faEyeSlash, faG } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faG,
+  faWarning,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ThemeContext, formTheme } from "../../ThemeContext";
 import googleLogo from "../../Asset/Images/GoogleLogo.svg";
@@ -9,37 +14,34 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import { CircularProgress } from "@mui/material";
 function LoginForm() {
-  const  [signinmail, setSigninmail] = useState('')
-  const  [signinpassword, setSigninpassword] = useState('')
-  const [error, setError] = useState('')
+  const [signinmail, setSigninmail] = useState("");
+  const [signinpassword, setSigninpassword] = useState("");
+  const [error, setError] = useState("");
   const { toggleTheme } = useContext(ThemeContext);
   const [toggleEye, setToggleEye] = useState(false);
-  const [isloading , setIsloading] = useState(false)
-  
+  const [isloading, setIsloading] = useState(false);
 
-  const {Userlogin, user} = UserAuth()
-  const navigate = useNavigate()
-  
-  if (user != null){
-    navigate('/dashboard')
+  const { Userlogin, user } = UserAuth();
+  const navigate = useNavigate();
+
+  if (user != null) {
+    navigate("/dashboard");
   }
 
-  const handleLogin = async()=>{
-    setError('')
-    setIsloading(true)
-    try{
-      await Userlogin(signinmail, signinpassword)
-      navigate('/dashboard')
-      setIsloading(false)
+  const handleLogin = async () => {
+    setError("");
+    setIsloading(true);
+    try {
+      await Userlogin(signinmail, signinpassword);
+      navigate("/dashboard");
+      setIsloading(false);
+    } catch {
+      setError("Wrong Username or password");
+      setIsloading(false);
     }
-    catch{
-      setError("wrong Username or password")
-      setIsloading(false)
-    }
-  }
+  };
 
   return (
-
     <>
       <form
         className="flex__layout"
@@ -74,14 +76,23 @@ function LoginForm() {
 
           <h4>Login with Google</h4>
         </button>
-          <p style={{color:"red", fontSize:"10px", transform:"translate(80px,40px)"}}>{error}</p>
+        <p
+          style={{
+            color: "red",
+            fontSize: "12px",
+            transform: "translate(80px,45px)",
+          }}
+        >
+          {error != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+          {error}
+        </p>
         <label htmlFor="username">
           <h5 className="formText">Email</h5>
           <input
             type="text"
             name="username"
             id="user"
-            onChange={(e)=>setSigninmail(e.target.value)}
+            onChange={(e) => setSigninmail(e.target.value)}
             placeholder="Example@gmail.com"
             style={{ color: toggleTheme ? "white" : "black" }}
           />
@@ -92,7 +103,7 @@ function LoginForm() {
             style={{ color: toggleTheme ? "white" : "black" }}
             type={toggleEye ? "text" : "password"}
             name="password"
-            onChange={(e)=>setSigninpassword(e.target.value)}
+            onChange={(e) => setSigninpassword(e.target.value)}
             id="pass"
           />
 
@@ -112,14 +123,27 @@ function LoginForm() {
             )}
           </button>
         </label>
-         
-          <button type="submit" className="logincta cta" onClick={handleLogin} style={{position:'relative'}} >
-            LOG IN <CircularProgress sx={{color:"white", position:'absolute', right:"20px", top:'8px', display:isloading?"block":"none"}} size={30} />
-          </button>
- 
-        <h5 style={{ marginTop: "20px", color:"gray" }}>
-          Forgot password?
-          </h5>
+
+        <button
+          type="submit"
+          className="logincta cta"
+          onClick={handleLogin}
+          style={{ position: "relative" }}
+        >
+          LOG IN{" "}
+          <CircularProgress
+            sx={{
+              color: "white",
+              position: "absolute",
+              right: "20px",
+              top: "8px",
+              display: isloading ? "block" : "none",
+            }}
+            size={30}
+          />
+        </button>
+
+        <h5 style={{ marginTop: "20px", color: "gray" }}>Forgot password?</h5>
         <h5 style={{ marginTop: "20px" }}>
           Dont have an Account?
           <Link to={"/signup"} style={{ textDecoration: "none" }}>

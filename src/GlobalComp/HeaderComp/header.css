@@ -15,12 +15,13 @@
     width: 200px;
     left:-150px;
     position: absolute;
-    top: 50px;
+    top: 45px;
     z-index: 1000px;
     padding:40px;
     display: flex;
     justify-content: center;
     align-items: center;
+  
 
 
 }
