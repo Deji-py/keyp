@@ -33,7 +33,7 @@ function SignupForm() {
       if (registerpassword === confirmpassword) {
         await createUser(registeremail, registerpassword);
         navigate("/dashboard");
-        await Userprofile(firstname, lastname);
+        Userprofile(firstname, lastname);
         setIsloading(false);
       } else {
         setMatcherror("Password does not match");

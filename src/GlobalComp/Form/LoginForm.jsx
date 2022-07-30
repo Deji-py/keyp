@@ -76,18 +76,24 @@ function LoginForm() {
 
           <h4>Login with Google</h4>
         </button>
-        <p
+     
+        <label htmlFor="username" style={{position:"relative"}}>
+          <h5 className="formText">Email
+          <p
           style={{
-            color: "red",
+            position: "absolute",
+            top: "8px",
             fontSize: "12px",
-            transform: "translate(80px,45px)",
+            color: "red",
+            right: "0",
           }}
         >
+           
+
           {error != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
           {error}
         </p>
-        <label htmlFor="username">
-          <h5 className="formText">Email</h5>
+        </h5>
           <input
             type="text"
             name="username"
