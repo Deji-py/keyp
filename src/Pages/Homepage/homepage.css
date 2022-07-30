@@ -1,0 +1,25 @@
+.bgimg{
+    position: absolute;
+    top: 20%;
+   
+}
+.bgimg2{
+    width: 400px;
+    left: -10% !important;
+    opacity: 0.5;
+}
+
+
+.greeting{
+    margin-top: 50px;
+}
+.greetingSub{
+    opacity: 0.5;
+}
+
+.hero{
+    position: relative;
+ 
+}
+
+

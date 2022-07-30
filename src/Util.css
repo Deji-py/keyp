@@ -1,0 +1,23 @@
+.flex__layout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex__centered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta{
+    all: unset;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+:root{
+    --primary: #047EF8;
+}

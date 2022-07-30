@@ -1,0 +1,36 @@
+.SubTab{
+    width: 100%;
+    padding: 20px 100px 20px 100px;
+    position: fixed;
+    z-index: 500;
+    top: 9%;
+}
+
+.addcta{
+    background: var(--primary);
+    padding: 10px 15px 10px 15px;
+    border-radius : 100px;
+}
+
+.addkey{
+    padding: 10px;
+    background-color: var(--primary);
+    border-radius: 10px;
+  
+}
+
+.searchcta{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 100px ;
+    border: none;
+    color:black;
+}
+
+.searchicon{
+    font-size: 20px;
+
+}
+

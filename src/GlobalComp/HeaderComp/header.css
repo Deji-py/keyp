@@ -1,0 +1,77 @@
+.header{
+    padding: 10px 20px 10px 20px;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: whitesmoke;
+    color: black;
+    box-shadow: 0px 0px 6px hsl(0, 0%, 76%);
+}
+
+
+.profilecard{
+    background: white;
+    width: 200px;
+    left:-150px;
+    position: absolute;
+    top: 50px;
+    z-index: 1000px;
+    padding:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.logout{
+    background-color: rgb(255, 255, 255) !important;
+    color:rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px hsl(0, 0%, 5%);
+}
+
+.signupcta{
+    all: unset;
+    background: black;
+    color: white;
+    border-radius:10px;
+    padding: 10px;
+}
+
+.header h4{
+   font-size: 20px;
+   font-weight: 600;
+   text-align: center;
+}
+
+
+.modal{
+    display: "none";
+}
+
+
+.navlist{
+    width: 300px;
+    list-style-type: none;
+}
+
+
+.navlist li{
+    font-size: 15px;
+    opacity: 0.5;
+    font-weight: bold;
+    cursor: pointer;
+    transition: ease 0.5s;
+}
+
+.mobileNav {
+    display: none;
+  }
+
+.navlist li:hover{
+    opacity: 1; 
+}
+
+
+

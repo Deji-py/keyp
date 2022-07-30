@@ -1,0 +1,50 @@
+.activity{
+     width: 90%;
+     height: 80vh;
+     padding: 0px 20px 20px 20px;
+     margin-bottom: 30px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     transform: translateY(-10px);
+     margin-top: 55px;
+}
+
+.mobileinstr{
+    display: none;
+}
+
+.desktopinstr{
+    display: block;
+}
+
+.new{
+    height: 100%;
+    position:fixed ;
+    bottom: -50px;
+    color: gray;
+    width: 100% ;
+
+}
+
+
+.latestPass, .socialPass{
+    width: 100%;
+    height: 70%;
+    margin: 0px;
+}
+
+.social, .others {
+    background-color:rgb(219, 219, 219) ;
+    padding: 5px 10px 5px 10px;
+}
+
+.latestPass, .socialPass {
+    padding: 20px;
+}
+.latesttab, .socialPass{
+    padding-bottom:20px;
+}
+
+
