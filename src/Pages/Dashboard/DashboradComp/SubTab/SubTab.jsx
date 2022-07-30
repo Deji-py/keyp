@@ -25,9 +25,6 @@ function SubTab() {
           Add key
         </button>
       </div>
-      <div className="name">
-        <h2 style={{ color: "gray", marginRight: "20px"}}>HI, {user && user.displayName}</h2>
-      </div>
       <div className="Right flex__layout">
         <button
           className="searchcta"

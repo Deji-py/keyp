@@ -8,14 +8,13 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../firebase-config";
-import { Update } from "@material-ui/icons";
+
 
 export const userContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
 
-  const [username, setUsername] = useState('')
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);

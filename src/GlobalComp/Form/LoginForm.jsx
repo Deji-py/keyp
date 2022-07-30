@@ -83,14 +83,14 @@ function LoginForm() {
           style={{
             position: "absolute",
             top: "8px",
-            fontSize: "12px",
+            fontSize: "10px",
             color: "red",
-            right: "0",
+            right: "0px",
           }}
         >
            
 
-          {error != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+          {error !== ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
           {error}
         </p>
         </h5>

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ThemeContext, formTheme } from "../../ThemeContext";
 import googleLogo from "../../Asset/Images/GoogleLogo.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth, userContext } from "../../context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 import { CircularProgress } from "@mui/material";
 
 function SignupForm() {
@@ -90,7 +90,7 @@ function SignupForm() {
               padding:"10px 10px 0px 10px"
             }}
           >
-             {error != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+             {error !== ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
           {error}
           </p>
         <label htmlFor="username">
@@ -176,13 +176,13 @@ function SignupForm() {
           <p
             style={{
               position: "absolute",
-              top: "8px",
-              fontSize: "12px",
+              top: "-8px",
+              fontSize: "10px",
               color: "red",
               right: "0",
             }}
           >
-             {matcherror != ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
+             {matcherror !== ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
           {matcherror}
           </p>
           <input
