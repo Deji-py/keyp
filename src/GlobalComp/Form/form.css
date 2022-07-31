@@ -8,6 +8,53 @@ form{
     background-color: #ECECEC;
 }
 
+.mainModal {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  height: 100vh;
+  top: 0%;
+  left: 0;
+}
+
+.createkey {
+  padding: 15px;
+  margin-top: 30px;
+  color: white;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--secondary);
+}
+
+.warning{
+    font-size: 15px;
+    color: orange;
+    padding: 10px;
+}
+
+.Addkeyform {
+  padding: 20px;
+}
+
+.cancelbtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+
+
 
 .logincta{
     padding: 15px;

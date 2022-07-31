@@ -122,8 +122,8 @@ function Header({ nav, profilepic, username }) {
             )}
           </IconButton>
           <Avatar
-            src={profilepic}
-            alt={username}
+            src=""
+            alt=""
             style={{ marginRight: "10px", cursor: " pointer" }}
             onClick={handleToggleLogout}
           />

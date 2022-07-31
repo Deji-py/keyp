@@ -6,6 +6,14 @@
     display: none;
   }
 
+
+  .mainModal{
+    padding: 0px 20px 0px 20px !important;
+  }
+
+  .cancelbtn{
+    top: 20px !important;
+  }
  
   .mobileNavList {
     display: block;
