@@ -21,7 +21,7 @@ form{
     font-weight: 500;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
-    background: #047EF8;
+    background: linear-gradient(60deg, var(--primary),  #8204f8);
   }
 
 

@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import "../../MediaQuery.css";
 import { ThemeContext, navTheme, main } from "../../ThemeContext";
-import logo from "../../Asset/Images/Key.svg";
+import logo from "../../Asset/Images/Logo.svg";
 import logout from "../../Asset/Images/logout.svg";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
