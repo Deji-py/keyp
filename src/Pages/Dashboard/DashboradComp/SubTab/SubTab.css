@@ -14,7 +14,7 @@
 
 .addkey{
     padding: 10px;
-    background-color: #8204f8;
+    background-color: var(--primary);
     border-radius: 10px;
   
 }

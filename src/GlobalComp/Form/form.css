@@ -26,7 +26,7 @@ form{
   border: none;
   text-align: center;
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .warning{
@@ -68,7 +68,7 @@ form{
     font-weight: 500;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
-    background: linear-gradient(60deg, var(--primary),  #8204f8);
+    background: linear-gradient(60deg, var(--primary),  var(--secondary));
   }
 
 
