@@ -7,14 +7,14 @@
 }
 
 .addcta{
-    background: var(--primary);
+    background: linear-gradient(60deg, var(--primary),  #8204f8);
     padding: 10px 15px 10px 15px;
     border-radius : 100px;
 }
 
 .addkey{
     padding: 10px;
-    background-color: var(--primary);
+    background-color: #8204f8;
     border-radius: 10px;
   
 }
