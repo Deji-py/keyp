@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   const [googleUserphoto, setGoogleuserphoto] = useState("");
 
   const UsersigninwithGoogle = () => {
-    signInWithPopup(auth, provider)
+    return signInWithPopup(auth,provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -40,7 +40,9 @@ export const AuthContextProvider = ({ children }) => {
         // ...
       });
   };
+if (user != null){
 
+}
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };

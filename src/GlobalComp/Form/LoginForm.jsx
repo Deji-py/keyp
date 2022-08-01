@@ -48,7 +48,6 @@ function LoginForm() {
     setGoogleIsloading(true);
     try{
       UsersigninwithGoogle()
-      navigate("/dashboard");
       setGoogleIsloading(false);
     }catch{
       setGoogleIsloading(false);
