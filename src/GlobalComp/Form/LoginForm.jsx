@@ -13,6 +13,8 @@ import googleLogo from "../../Asset/Images/GoogleLogo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import { CircularProgress } from "@mui/material";
+import { GoogleAuthProvider } from "firebase/auth";
+
 function LoginForm() {
   const [signinmail, setSigninmail] = useState("");
   const [signinpassword, setSigninpassword] = useState("");
@@ -20,8 +22,9 @@ function LoginForm() {
   const { toggleTheme } = useContext(ThemeContext);
   const [toggleEye, setToggleEye] = useState(false);
   const [isloading, setIsloading] = useState(false);
+  const [googleisloading, setGoogleIsloading] = useState(false);
 
-  const { Userlogin, user } = UserAuth();
+  const { Userlogin, user, UsersigninwithGoogle } = UserAuth();
   const navigate = useNavigate();
 
   if (user != null) {
@@ -39,6 +42,19 @@ function LoginForm() {
       setError("Wrong Username or password");
       setIsloading(false);
     }
+  };
+
+  const handleGoogleLogin = async () => {
+    setGoogleIsloading(true);
+    try{
+      UsersigninwithGoogle()
+      navigate("/dashboard");
+      setGoogleIsloading(false);
+    }catch{
+      setGoogleIsloading(false);
+
+    }
+     
   };
 
   return (
@@ -71,29 +87,45 @@ function LoginForm() {
             Your Trusted and Tested Password guard, Security at your fingertips
           </blockquote>
         </div>
-        <button className="googleauth flex__layout">
+        <button className="googleauth flex__layout" onClick={handleGoogleLogin} style={{position:"relative"}}>
           <img src={googleLogo} alt="google" style={{ marginRight: "20px" }} />
 
           <h4>Login with Google</h4>
+          <CircularProgress
+            sx={{
+              color: "black",
+              position: "absolute",
+              right: "20px",
+              top: "8px",
+              display: googleisloading ? "block" : "none",
+            }}
+            size={30}
+          />
         </button>
-     
-        <label htmlFor="username" style={{position:"relative"}}>
-          <h5 className="formText">Email
-          <p
-          style={{
-            position: "absolute",
-            top: "8px",
-            fontSize: "10px",
-            color: "red",
-            right: "0px",
-          }}
-        >
-           
 
-          {error !== ''?  <FontAwesomeIcon icon={faWarning} style={{marginRight:"5px"}} />:""}
-          {error}
-        </p>
-        </h5>
+        <label htmlFor="username" style={{ position: "relative" }}>
+          <h5 className="formText">
+            Email
+            <p
+              style={{
+                position: "absolute",
+                top: "8px",
+                fontSize: "10px",
+                color: "red",
+                right: "0px",
+              }}
+            >
+              {error !== "" ? (
+                <FontAwesomeIcon
+                  icon={faWarning}
+                  style={{ marginRight: "5px" }}
+                />
+              ) : (
+                ""
+              )}
+              {error}
+            </p>
+          </h5>
           <input
             type="text"
             name="username"

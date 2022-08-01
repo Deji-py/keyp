@@ -9,8 +9,8 @@ form{
 }
 
 .mainModal {
-  backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   z-index: 10000;
   width: 100%;
@@ -68,7 +68,7 @@ form{
     font-weight: 500;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
-    background: linear-gradient(60deg, var(--primary),  var(--secondary));
+    background: var(--primary);
   }
 
 

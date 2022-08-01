@@ -5,45 +5,69 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
+  signInWithPopup,
+  signInWithRedirect,
 } from "firebase/auth";
-
 import { auth } from "../firebase-config";
+import { GoogleAuthProvider } from "firebase/auth";
 
+const provider = new GoogleAuthProvider();
 
 export const userContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [googleUserphoto, setGoogleuserphoto] = useState("");
 
+  const UsersigninwithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+         setGoogleuserphoto(result.user.photoURL)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const Userprofile = (firstname, lastname)=>{
+  const Userprofile = (firstname, lastname) => {
     return updateProfile(auth.currentUser, {
-      displayName:firstname+" "+lastname
-    })
-  }
-  
+      displayName: firstname + " " + lastname,
+    });
+  };
+
   const Userlogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const Userlogout = () => {
-    return signOut(auth);
+    signOut(auth);
+    setGoogleuserphoto(null)
   };
-
- 
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-    })
+    });
     return () => {
       unsubscribe();
-    }
-  }, [])
+    };
+  }, []);
+
 
   return (
     <userContext.Provider
@@ -52,7 +76,9 @@ export const AuthContextProvider = ({ children }) => {
         user,
         Userlogout,
         Userlogin,
-        Userprofile
+        Userprofile,
+        UsersigninwithGoogle,
+        googleUserphoto,
       }}
     >
       {children}

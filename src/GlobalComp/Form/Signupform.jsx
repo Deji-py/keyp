@@ -77,11 +77,6 @@ function SignupForm() {
             Fill the form Below to start you password security experience
           </blockquote>
         </div>
-        <button className="googleauth flex__layout">
-          <img src={googleLogo} alt="google" style={{ marginRight: "20px" }} />
-
-          <h4>Signup with Google</h4>
-        </button>
         <p
             style={{
               color: "red",

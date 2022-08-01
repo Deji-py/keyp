@@ -18,12 +18,13 @@ import logout from "../../Asset/Images/logout.svg";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 
-function Header({ nav, profilepic, username }) {
+function Header({ nav}) {
   const { theme, setTheme, toggleTheme, setToggleTheme } =
     useContext(ThemeContext);
-  const { Userlogout } = UserAuth();
+  const { Userlogout, googleUserphoto, user } = UserAuth();
   const [toggle, setToggle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+ 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -122,8 +123,8 @@ function Header({ nav, profilepic, username }) {
             )}
           </IconButton>
           <Avatar
-            src=""
-            alt=""
+            src={googleUserphoto}
+            alt="user"
             style={{ marginRight: "10px", cursor: " pointer" }}
             onClick={handleToggleLogout}
           />

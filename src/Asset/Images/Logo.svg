@@ -1,15 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="884.293" height="941.353" viewBox="0 0 884.293 941.353">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#dd01ff"/>
-      <stop offset="1" stop-color="#07e6ff"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="884.293" height="941.353" viewBox="0 0 884.293 941.353">
   <g id="Group_11" data-name="Group 11" transform="translate(919.235 1731.831)">
     <path id="Path_25" data-name="Path 25" d="M-476-1652.159l362.058,158.253v468.428L-476-879.885l-372.235-348.156v-265.865Z" transform="translate(4 2)" fill="none" stroke="#000" stroke-width="150"/>
     <g id="Group_10" data-name="Group 10">
       <path id="Path_21" data-name="Path 21" d="M-88.622-1500.236v474.758L-413.9-1321.185l-22.879-20.8Z" transform="translate(-17 5)" fill="#030004" stroke="#fff" stroke-linejoin="round" stroke-width="30"/>
-      <path id="Path_23" data-name="Path 23" d="M-466-867.449l358.388-145.369-310.175-303.845h0l310.175-189.9L-466-1652.159l-382.235,145.593v278.525Z" stroke="#fff" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="30" fill="url(#linear-gradient)"/>
+      <path id="Path_23" data-name="Path 23" d="M-466-867.449l358.388-145.369-310.175-303.845h0l310.175-189.9L-466-1652.159l-382.235,145.593v278.525Z" fill="#046ef8" stroke="#fff" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="30"/>
     </g>
   </g>
 </svg>

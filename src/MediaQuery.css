@@ -139,10 +139,10 @@
     border: none;
     color: white;
     right: 20px;
-    background: linear-gradient(60deg, var(--primary),  #8204f8);
+    background: var(--primary);
     border-radius: 100px;
     font-size: 25px;
-    box-shadow: 0px 0px 4px black;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   }
 
   .leftadd {

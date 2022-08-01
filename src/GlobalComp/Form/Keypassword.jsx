@@ -24,7 +24,9 @@ function Keypassword() {
       }}
     >
       <motion.div animate={{
-        y:toggleAddkey?50:-100
+        scale:toggleAddkey?1:0.8,
+        transition:0.2
+        
       }}
         className="card AddkeyForm flex__centered"
         style={{
