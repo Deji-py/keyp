@@ -105,6 +105,12 @@ form{
     padding: 17px;
   }
 
+  .changekey{
+    background-color: #5a5a5a ;
+    font-size: 15px !important;
+    font-family: 'Poppins', cursive;
+  }
+
   .formText{
     font-size: 15px;
     margin: 5px;
