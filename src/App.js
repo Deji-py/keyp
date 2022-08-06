@@ -13,6 +13,7 @@ import Homepage from "./Pages/Homepage/Homepage";
 import SignupPage from "./Pages/Signuppage/SignupPage";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import { AuthContextProvider, UserAuth } from "./context/AuthContext";
+import { Helmet } from "react-helmet";
 
 function App() {
   const [toggleTheme, setToggleTheme] = useState(false);
@@ -28,7 +29,12 @@ function App() {
       }}
     >
       <AuthContextProvider>
-       
+        <Helmet>
+          <meta
+            name="theme-color"
+            content={toggleTheme ? "#191919" : "#f0f0f0"}
+          />
+        </Helmet>
         <Router>
           <Routes>
             <Route exact path="/" element={<Homepage />} />

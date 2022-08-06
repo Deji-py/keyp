@@ -6,7 +6,6 @@ import {
   onAuthStateChanged,
   updateProfile,
   signInWithPopup,
-  signInWithRedirect,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -40,9 +39,7 @@ export const AuthContextProvider = ({ children }) => {
         // ...
       });
   };
-if (user != null){
 
-}
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };

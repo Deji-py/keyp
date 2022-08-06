@@ -7,7 +7,7 @@ import "./SubTab.css";
 
 function SubTab() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const {setToggleAddkey} = useContext(FormContext)
+  const {setToggleAddkey, setToggleAddpass} = useContext(FormContext)
   
 
   const handleToggle = ()=>{
@@ -33,7 +33,7 @@ function SubTab() {
           >
             <FontAwesomeIcon icon={faSearch} className="searchicon" />
           </button>
-          <button className="cta addcta">
+          <button className="cta addcta" onClick={()=>setToggleAddpass(true)}>
             <FontAwesomeIcon icon={faPlus} style={{ marginRight: "10px" }} />
             Add Password
           </button>

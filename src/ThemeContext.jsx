@@ -1,7 +1,7 @@
 import React from "react";
 
 export const navTheme = {
-  navlight: { background: "whitesmoke", color: "black" },
+  navlight: { background: "white", color: "black" },
   navDark: {
     background: "#191919",
     color: "white",

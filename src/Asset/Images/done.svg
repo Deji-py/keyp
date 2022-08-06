@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="174.347" height="168.505" viewBox="0 0 174.347 168.505">
+  <g id="Group_14" data-name="Group 14" transform="translate(564.121 -58.959)">
+    <rect id="Rectangle_58" data-name="Rectangle 58" width="138" height="127" rx="63.5" transform="translate(-389.774 177.524) rotate(159)" fill="#bcff9b"/>
+    <rect id="Rectangle_56" data-name="Rectangle 56" width="122" height="107" rx="53.5" transform="translate(-482.303 65.536) rotate(45)" fill="#44cf00"/>
+    <g id="key" transform="translate(-526 98)">
+      <path id="Path_12" data-name="Path 12" d="M0,0H97.453V97.453H0Z" fill="none"/>
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="16" cy="16" r="16" transform="translate(17 44)" stroke-width="7" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <line id="Line_8" data-name="Line 8" y1="33.093" x2="33.093" transform="translate(44.057 16.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+      <line id="Line_9" data-name="Line 9" x2="7" y2="4" transform="translate(73 22)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+      <line id="Line_10" data-name="Line 10" x2="10" y2="9" transform="translate(61 32)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+    </g>
+  </g>
+</svg>

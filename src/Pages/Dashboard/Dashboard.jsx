@@ -11,10 +11,12 @@ import SubTab from "./DashboradComp/SubTab/SubTab";
 import "./dashboard.css";
 import Keypassword from "../../GlobalComp/Form/Keypassword";
 import { FormContext } from "../../context/FormContext";
+import AddPassword from "../../GlobalComp/Form/AddPassword";
 
 function Dashboard() {
-  const { theme } = useContext(ThemeContext);
+  const { theme , toggleTheme} = useContext(ThemeContext);
   const [toggleAddkey, setToggleAddkey] = useState(false);
+  const [toggleAddpass, setToggleAddpass] = useState(false);
   
   const { user } = UserAuth();
 
@@ -25,19 +27,21 @@ function Dashboard() {
 
   return (
     <profileContext.Provider value={profile}>
-      <FormContext.Provider value={{ toggleAddkey, setToggleAddkey }}>
+       
+      <FormContext.Provider value={{ toggleAddkey, setToggleAddkey , setToggleAddpass, toggleAddpass}}>
         <div
           className="main flex__centered"
           style={{ position: "relative", ...theme }}
         >
           <Keypassword />
+          <AddPassword/>
           <button
             className="mobileaddcta mobilesearchcta"
             style={{ display: "none" }}
           >
             <FontAwesomeIcon icon={faSearch} />
           </button>
-          <button className="mobileaddcta" style={{ display: "none" }}>
+          <button className="mobileaddcta" style={{ display: "none" }} onClick={()=>setToggleAddpass(true)}>
             <FontAwesomeIcon icon={faPlus} />
           </button>
           <Header

@@ -11,7 +11,7 @@ import { navTheme, ThemeContext } from "../../ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormContext } from "../../context/FormContext";
 import { motion } from "framer-motion";
-import done from "../../Asset/Images/Completed.png";
+import done from "../../Asset/Images/done.svg";
 
 function Keypassword() {
   const { toggleAddkey, setToggleAddkey } = useContext(FormContext);
